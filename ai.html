@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>اسأل الإمام الحسن الزكي عليه السلام</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Amiri', serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-logo {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      position: relative;
+    }
+
+    .header-logo h1 {
+      font-size: 28px;
+      color: #f0c040;
+      margin: 0;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #333;
+      color: #f0c040;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .chat-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #333;
+    }
+
+    .chat-container input,
+    .chat-container button,
+    .chat-container select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .chat-container button {
+      background-color: #f0c040;
+      cursor: pointer;
+    }
+
+    .chat-response {
+      margin-top: 20px;
+      background-color: #222;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 18px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-logo">
+    <a href="index.html" class="back-button">𝕳𝖀𝕾𝕾𝕿𝕴𝕹 𝕸𝕺𝕯𝕳𝕰𝕽</a>
+    <h1>اسأل الإمام الحسن الزكي عليه السلام</h1>
+  </div>
+
+  <main>
+    <div class="chat-container">
+      <input type="text" id="userInput" placeholder="اكتب سؤالك عن الإمام الحسن...">
+      <button onclick="askImam()">إرسال</button>
+
+      <select id="readyQuestions" onchange="selectQuestion()">
+        <option value="">اختر سؤالاً جاهزاً...</option>
+        <option value="متى وُلد الإمام الحسن؟">متى وُلد الإمام الحسن؟</option>
+        <option value="ما هي ألقاب الإمام الحسن؟">ما هي ألقاب الإمام الحسن؟</option>
+        <option value="لماذا صالح الإمام الحسن معاوية؟">لماذا صالح الإمام الحسن معاوية؟</option>
+        <option value="كيف استشهد الإمام الحسن؟">كيف استشهد الإمام الحسن؟</option>
+        <option value="ما هي صفات الإمام الحسن؟">ما هي صفات الإمام الحسن؟</option>
+      </select>
+
+      <button onclick="copyAnswer()">نسخ الإجابة</button>
+      <div id="chatOutput" class="chat-response"></div>
+    </div>
+  </main>
+
+  <script>
+    function selectQuestion() {
+      const selected = document.getElementById("readyQuestions").value;
+      document.getElementById("userInput").value = selected;
+      askImam();
+    }
+
+    function askImam() {
+      const input = document.getElementById("userInput").value.trim();
+      const output = document.getElementById("chatOutput");
+      output.innerHTML = "";
+
+      if (!input) {
+        output.textContent = "يرجى كتابة سؤال أولاً.";
+        return;
+      }
+
+      let answer = "";
+
+      if (input.includes("ولادة") || input.includes("متى ولد")) {
+        answer = "وُلد الإمام الحسن الزكي عليه السلام في المدينة المنورة في الخامس عشر من شهر رمضان سنة 3 هـ، وكان أول حفيد لرسول الله ﷺ، وسماه النبي بإلهام من الله تعالى.";
+      } else if (input.includes("ألقابه") || input.includes("لقب")) {
+        answer = "من ألقابه: المجتبى، الزكي، كريم أهل البيت، سيد شباب أهل الجنة، وكان يُعرف بجماله ووقاره، ويشبه النبي ﷺ في هيبته.";
+      } else if (input.includes("الصلح") || input.includes("معاوية")) {
+        answer = "اختار الإمام الحسن عليه السلام الصلح مع معاوية حفاظًا على وحدة المسلمين وحقنًا للدماء، بعد أن رأى التخاذل والانقسام في الأمة، وكتب شروطًا تحفظ كرامة الإسلام.";
+      } else if (input.includes("استشهاد") || input.includes("كيف مات")) {
+        answer = "استشهد الإمام الحسن عليه السلام سنة 50 هـ، بعد أن دسّ له السمّ معاوية عبر زوجته جعدة بنت الأشعث، ودُفن في البقيع بجوار أمه الزهراء عليها السلام.";
+      } else if (input.includes("صفاته") || input.includes("كرمه") || input.includes("أخلاقه")) {
+        answer = "كان الإمام الحسن عليه السلام يُعرف بالحلم والكرم والعفو، وكان يعطي السائل قبل أن يُطلب، ويزور الفقراء، ويأكل معهم، ويقول: إن الله لا يحب المتكبرين.";
+      } else {
+        answer = "الإمام الحسن عليه السلام هو ثاني أئمة أهل البيت، حياته مليئة بالحكمة والصبر والعطاء. اسألني عن ولادته، صفاته، مواقفه أو استشهاده لأجيبك بدقة.";
+      }
+
+      let i = 0;
+      const typing = setInterval(() => {
+        if (i < answer.length) {
+          output.textContent += answer.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 30);
+    }
+
+    function copyAnswer() {
+      const output = document.getElementById("chatOutput");
+      const text = output.textContent;
+
+      if (!text) {
+        alert("لا يوجد نص لنسخه.");
+        return;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ تم نسخ الإجابة بنجاح!");
+      }).catch(() => {
+        alert("❌ حدث خطأ أثناء النسخ.");
+      });
+    }
+  </script>
+</body>
+</html>

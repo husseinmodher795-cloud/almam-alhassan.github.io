@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Amiri', serif;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  direction: rtl;
+}
+
+/* شعار الإمام الحسن */
+.header-logo {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #f0c040;
+  position: relative;
+}
+
+.header-logo h1 {
+  font-size: 32px;
+  color: #f0c040;
+  margin: 0;
+  letter-spacing: 2px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* زر الرجوع */
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #f0c040;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* قائمة التنقل */
+nav {
+  background-color: #222;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #333;
+  color: #f0c040;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+/* المحتوى الرئيسي */
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: #f0c040;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* الفوتر */
+footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #333;
+}
+
+/* أزرار عامة */
+button {
+  background-color: #f0c040;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffd060;
+}
+
+/* مؤثر دخول */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* استجابة للموبايل */
+@media (max-width: 600px) {
+  .header-logo h1 {
+    font-size: 24px;
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li a {
+    width: 90%;
+    text-align: center;
+  }
+
+  main {
+    padding: 20px;
+  }
+}
+
